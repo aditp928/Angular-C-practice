@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping list with Angular</title>
+</head>
+<body>
+        <script>
+                var app = angular.module("myShoppingList", []); 
+                app.controller("myCtrl", function($scope) {
+                    $scope.products = ["Milk", "Bread", "Cheese"];
+                    $scope.addItem = function () {
+                        $scope.errortext = "";
+                        if (!$scope.addMe) {return;}
+                        if ($scope.products.indexOf($scope.addMe) == -1) {
+                            $scope.products.push($scope.addMe);
+                        } else {
+                            $scope.errortext = "The item is already in your shopping list.";
+                        }
+                    }
+                    $scope.removeItem = function (x) {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+</body>
+</html>
